@@ -9,6 +9,7 @@ html {
 	--color-blue: #0041CB;
 	--color-dark-blue: #7A99FF;
 	--color-faded-blue: #AFC9FF;
+	--color-faded-light-blue: #CEDFFC;
 	--color-orange: #FFC733;
 	--color-dark-orange: #C89700;
 	--color-light-orange: #FFFA68;
@@ -172,8 +173,12 @@ main {
 	max-width: var(--margin-standard);
 }
 
+body {
+	margin: 0 auto;
+}
+
 /*========================================
-Elements
+Accordion
 ==========================================*/
 
 details {
@@ -181,7 +186,6 @@ details {
 	border: 1px solid var(--color-blue);
 	border-radius: .2rem;
 	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
-	margin: 2rem 0;
 	overflow: hidden;
 }
 
@@ -199,6 +203,14 @@ details div {
 	padding: 2rem;
 }
 
+details p {
+	font-style: normal;
+}
+
+/*========================================
+Button Links
+==========================================*/
+
 .link-button-normal {
 	background-color: var(--color-orange);
 	border-radius: .2rem;
@@ -206,6 +218,14 @@ details div {
 	display: inline-block;
 	padding: 1.2rem .8rem;
 	text-decoration: none;
+}
+
+.link-button-normal-two {
+	background-color: var(--color-dark-orange);
+}
+
+.link-button-normal-three {
+	background-color: var(--color-light-orange);
 }
 
 .link-button-normal:hover {
@@ -224,8 +244,53 @@ details div {
 }
 
 .link-button-hero {
+	background-color: var(--color-blue);
+	color: #FFF;
 	font-size: 1.4rem;
-	padding: 2.1rem 1.2rem;
+	padding: 1.7rem .9rem;
+}
+
+.link-button-hero {
+	background-color: var(--color-blue);
+	color: #FFF;
+	font-size: 1.4rem;
+	padding: 1.7rem .9rem;
+}
+
+.link-button-hero:visited {
+	background-color: var(--color-blue);
+	color: #FFF;
+	font-size: 1.4rem;
+	padding: 1.7rem .9rem;
+}
+
+.link-button-hero:hover, focus {
+	background-color: var(--color-dark-blue);
+	font-size: 1.4rem;
+	padding: 1.7rem .9rem;
+}
+
+.link-button-hero-two {
+	background-color: var(--color-dark-blue);
+	font-size: 1.4rem;
+	padding: 1.7rem .9rem;
+}
+
+.link-button-hero-two:hover, focus {
+	color: #FFF;
+	background-color: var(--color-faded-blue);
+}
+
+.link-button-hero-three {
+	background-color: var(--color-faded-blue);
+	font-size: 1.4rem;
+	padding: 1.7rem .9rem;
+}
+
+.link-button-hero-three:hover, focus {
+	background-color: var(--color-faded-light-blue);
+	font-size: 1.4rem;
+	padding: 1.7rem .9rem;
 }
 
 .link-button-tertiary {
@@ -243,6 +308,62 @@ details div {
 
 .link-button-tertiary:active {
 	box-shadow: 1px 1px;
+}
+
+
+/*========================================
+Modal Component
+==========================================*/
+
+dialog {
+	border: none;
+	border: 1px solid var(--color-blue);
+	border-radius: .2rem;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+	padding: 2rem;
+}
+
+dialog[open] {
+	animation: fade-in 2s ease-out;
+}
+
+dialog::backdrop {
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	background-color: #7A99FF;
+	opacity: .25;
+}
+
+@keyframes fade-in {
+	
+	0% {
+		opacity: 0;
+		transform: scale(.1);
+	}
+	
+	60% {
+		transform: scale(1.25);
+	}
+	
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	
+}
+
+@keyframes slide-in-left {
+	
+	0% {
+		opacity: 0;
+		transform: translatex(-100vw);
+	}
+	
+	100% {
+		opacity: .25;
+		transform: translatex(0);
+	}
+	
 }
 
 /*========================================
