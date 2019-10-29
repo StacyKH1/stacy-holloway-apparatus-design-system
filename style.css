@@ -23,18 +23,21 @@ html {
 	--font-primary: Helvetica, Arial, sans-serif;
 	--font-titles:'Squada One', cursive;
 
-	--size-one: calc( 1rem * 1.333 );
-	--size-two: calc( 1rem * 1.777 );
-	--size-three: calc( 1rem * 2.369 );
-	--size-four: calc( 1rem * 3.157 );
-	--size-five: calc( 1rem * 4.209 );
-	--size-six: calc( 1rem * 5.61 );
+	--ratio: 1.333;
+
+	--size-one: calc( 1rem * var(--ratio) );
+	--size-two: calc( var(--size-one) * var(--ratio) );
+	--size-three: calc( var(--size-two) * var(--ratio) );
+	--size-four: calc( var(--size-three) * var(--ratio) );
+	--size-five: calc( var(--size-four) * var(--ratio) );
+	--size-six: calc( var(--size-five) * var(--ratio));
 	--size-minus-one: calc( 1rem * .75 );
+
 	
 	color: var(--color-text-black);
 	font-family: var(--font-primary);
-	font-size: 17px;
-  	line-height: 1.4;
+	font-size: 18px;
+  	line-height: 1.45;
 }
 
 h1 {
@@ -103,7 +106,6 @@ main a:active {
 
 main a:hover, main a:focus {
 	color: var(--color-text-light-smoke);
-	text-decoration: underline;
 }
 
 figure {
@@ -111,7 +113,7 @@ figure {
 }
 
 figure p {
-	font-style: italic;
+	font-style: bold;
 }
 
 .paragraph-featured {
@@ -123,6 +125,8 @@ figure p {
 .tertiary-copy {
 	font-size: var(--size-minus-one);
 }
+
+
 
 /*========================================
 Examples
@@ -156,13 +160,81 @@ nav a {
 	text-decoration: none;
 }
 
+.page-nav a {
+	border-bottom: 2px solid rgba( 0,0,0,.1 );
+	display: block;
+	text-decoration: none;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	padding-left: .35rem;
+	padding-right: .35rem;
+
+	
+}
+
+.page-nav a:hover, .page-nav a:active {
+	background-color: var(--color-orange);
+	border-radius: .2rem;
+	color: var(--color-blue);
+	font-style: bold;
+}
+
+.page-nav li {
+	display: inline;
+	padding: .6rem;
+}
+
+.current-page {
+	background-color: var(--color-orange);
+	border-radius: .2rem;
+	color: var(--color-blue);
+}	
+
 nav	ul {
 	list-style-type: none;
 	padding: 0;
 }
 
+nav img {
+	padding-top: .5rem;
+}
+
+.footer-nav a {
+	padding: .75rem .35rem .75rem;
+}
+
+.footer-nav li {
+	padding: .2rem;
+}
+
+.footer-nav a:hover, .footer-nav a:active {
+	text-decoration: underline;
+	
+}
+
+.footer-nav ul li {
+	padding-left: 1.2rem;
+}
+
+.current-page-footer {
+	text-decoration: underline;
+}
+
+@media ( min-width: 625px ) {
+	
+	.page-nav li {
+		display: inline;
+	}
+	
+	.page-nav a {
+		border: none;
+		display: inline-block;
+	}
+	
+}
+
 /*========================================
-Main Page Components / Layout
+Main Page Components / Page Layout
 ==========================================*/
 
 main {
@@ -176,6 +248,43 @@ main {
 body {
 	margin: 0 auto;
 }
+
+
+@media ( min-width: 575px ) {
+	
+	main {
+		margin: auto;
+		max-width: 40rem;
+	}
+
+	html {
+		--ratio: 1.4;
+	}
+}
+
+@media ( min-width: 875px ) {
+	
+	main {
+		max-width: 45rem;
+	}
+
+	html {
+		--ratio: 1.3;
+	}
+}
+
+@media ( min-width: 1000px ) {
+	
+	main {
+		max-width: 55rem;
+	}
+
+	html {
+		--ratio: 1.33;
+	}
+}
+
+
 
 /*========================================
 Accordion
@@ -195,7 +304,7 @@ summary {
 	padding: 1rem;
 }
 
-summary:focus, hover {
+summary:focus, summary:hover {
 	outline: none;
 }
 
@@ -203,9 +312,6 @@ details div {
 	padding: 2rem;
 }
 
-details p {
-	font-style: normal;
-}
 
 /*========================================
 Button Links
@@ -316,7 +422,6 @@ Modal Component
 ==========================================*/
 
 dialog {
-	border: none;
 	border: 1px solid var(--color-blue);
 	border-radius: .2rem;
 	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
@@ -364,6 +469,79 @@ dialog::backdrop {
 		transform: translatex(0);
 	}
 	
+}
+
+/*========================================
+Form Components
+==========================================*/
+
+input, select, textarea {
+	border: 1px solid var(--color-blue);
+	border-radius: .2rem;
+	box-sizing: border-box;
+	display: block;
+	margin-top: .5rem;
+	min-width: 50%;
+	padding: .5rem;
+	-webkit-appearance:none;
+}
+
+textarea {
+	min-height: 5rem;
+}
+
+input:focus, select:focus, textarea:focus {
+	box-shadow: 2px 2px 0 #999;
+	outline: none;
+}
+
+input[disabled] {
+	opacity: .5;
+}
+
+.error {
+	background-color: firebrick;
+}
+
+.error-message {
+	color: firebrick;
+	font-size: var(--size-minus-one);
+	margin-top: .5rem;
+
+}
+
+.form-microcopy {
+	color: #777;
+	font-weight: light;
+}
+
+label {
+	display: block;
+	margin: 2rem 0 0;
+}
+
+input[type="submit"], button {
+	background-color: var(--color-orange);
+	border-color: solid var(--color-blue);
+	border-radius: .2rem;
+	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+	display: inline-block;
+	min-width: inherit;
+	padding: .5rem;
+	text-decoration: none;
+}
+
+
+
+input[type="submit"]:hover, button:hover {
+	background-color: white;
+	cursor: pointer;
+}
+
+input[type="submit"]:active, button:active {
+	background-color: var(--color-dark-blue);
+	color: white;
+	cursor: pointer;
 }
 
 /*========================================

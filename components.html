@@ -10,11 +10,13 @@
 	<body>
 		<header>
 			<a href="index.html" class="site-logo">Toolshed</a>
-			<nav>
+			<nav class="page-nav">
 				<ul>
+					
 					<li><a href="index.html">Home</a></li>
 					<li><a href="style.html">Style</a></li>
-					<li><a href="components.html">Components</a></li>
+					<img src="images/littleHammerIcon.png" alt="little hammer">
+					<li><a href="components.html" class="current-page">Components</a></li>
 					<li><a href="layouts.html">Layout</a></li>
 				</ul>
 			</nav>
@@ -36,19 +38,19 @@
 				<a href="" class="link-button-tertiary">Tertiary</a>
 			</figure>
 
-			<h2>Accordians</h2>
+			<h2>Accordions</h2>
 			<figure>
 				<details>
-					<summary>An example of an Accordian</summary>
+					<summary>An example of an Accordion</summary>
 					<div>
-						<h3>Accordian Example 1</h3>
+						<h3>Accordion Example 1</h3>
 						<p>Example of Listed Information</p>
 						<p>Example of Listed Information</p>
 						<p>Example of Listed Information</p>
 					</div>
 				</details>
 				<details>
-					<summary>Accordian Example 2</summary>
+					<summary>Accordion Example 2</summary>
 					<div>
 						<h3>Information Details</h3>
 						<p>Example of Listed Information</p>
@@ -57,7 +59,7 @@
 					</div>
 				</details>
 				<details>
-					<summary>Accordian Example 3</summary>
+					<summary>Accordion Example 3</summary>
 					<div>
 						<h3>Information Details</h3>
 						<p>Example of Listed Information</p>
@@ -67,19 +69,121 @@
 				</details>
 			</figure>
 
+			
 			<h2>Modal Dialog</h2>
+			<figure>
 			<button id="open-modal" type="button">Open Modal</button>
 			<dialog id="modal-demo">
 				<h2>This is a Modal!</h2>
 				<p>This is an example of a modal for this page.</p>
 				<p>Click anywhere to close.</p>
 			</dialog>
+			</figure>
+
+			<figure>
+			<h2>Form Inputs</h2>
+
+			<h3>Text</h3>
+				<form action="contact.js">
+					<label for="message">Name Field Example</label>
+					<small class="form-microcopy">First and Last Name</small>
+					<input type="text" id="name" name="contact_name" placeholder="Please your first and last name">
+				</form>
+				<form action="contact.js">
+					<label for="message">Error Example</label>
+					<small class="form-microcopy">First and Last Name</small>
+					<input type="text" id="name" name="contact_name" placeholder="Please your first and last name" required class="error">
+					<p class="error-message">Error Example: Error. Please try again.</p>
+				</form>
+				<form action="contact.js">
+					<label for="message" name="message" disabled>Disabled Example</label>
+					<small class="form-microcopy">First and Last Name</small>
+					<input type="text" id="name" name="contact_name" placeholder="Please your first and last name" disabled hidden selected>
+				</form>
+
+			<h3>Text Area</h3>
+				<form action="contact.js">
+					<label for="message">Message Field Example</label>
+					<small class="form-microcopy">Your Message</small>
+					<textarea id="message" name="message" placeholder="Please enter your message."></textarea>
+				</form>
+
+				<form action="contact.js">
+					<label for="message">Message Field Error Example</label>
+					<small class="form-microcopy">Your Message</small>
+					<textarea id="message" name="message" placeholder="Please enter your message." required class="error"></textarea>
+					<p class="error-message">Error Example: Error. Please try again.</p>
+				</form>
+
+				<form action="contact.js">
+					<label for="message">Message Field Disabled Example</label>
+					<small class="form-microcopy">Your Message</small>
+					<textarea id="message" name="message" placeholder="Please enter your message." disabled hidden selected></textarea>
+				</form>
+
+			<h3>Select</h3>
+				<label for="options">Option Select Example</label>
+				<select id="options" name="option_choices">
+				<option value="" selected disabled hidden>Select an Option</option>
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+				</select>
+
+				<label for="options">Option Select Error Example</label>
+				<select id="options" name="option_choices" required class="error">
+				<option value="" selected disabled hidden>Select an Option</option>
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+				</select>
+				<p class="error-message">Error Example: Error. Please try again.</p>
+
+				<label for="options">Option Select Disabled Example</label>
+				<select id="options" name="option_choices" disabled hidden selected>
+				<option value="" selected disabled hidden>Select an Option</option>
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+				</select>
+
+			<h3>Submit/Button</h3>
+			<input type="submit" value="Submit Information">
+			<button type="submit">Submit Button</button>
+		</figure>
+
+		<h2>Navigation</h2>
+		<figure>
+			<h3>Primary Navigation</h3>
+			<nav class="page-nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="style.html">Style</a></li>
+					<li><a href="components.html" class="current-page">Components</a></li>
+					<li><a href="layouts.html">Layout</a></li>
+				</ul>
+			</nav>
+
+			<h3>Secondary Navigation</h3>
+			<nav class="footer-nav">
+				<ul>
+					<li><a href="" class="current-page-footer">Main Link</a>
+						<ul>
+							<li><a href="">Nested Example</a></li>
+							<li><a href="">Nested Example</a></li>
+						</ul>
+					</li>
+					<li><a href="">Main Link</a></li>
+				</ul>
+			</nav>
+		</figure>
+
 		</main>
 		
 		<footer>
 			<p>Apparatus Design System by Stacy Holloway</p>
 			<p>Stacy Holloway is currently a UX/UI Student who freelances in graphic design. Beware of the goose.</p>
-			<nav>
+			<nav class="footer-nav">
 				<ul>
 					<li><a href="https://medium.com/">Medium</a></li>
 					<li><a href="https://dribbble.com/">Dribbble</a></li>
